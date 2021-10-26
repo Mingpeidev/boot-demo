@@ -1,3 +1,4 @@
+debug: true   # \u6253\u5370\u63A5\u53E3\u65E5\u5FD7
 server:
   port: 8082
   servlet:
@@ -6,4 +7,17 @@ server:
 student:
   age: 27\u4E86
   content: "name:${student.name},age:${student.age},\u53CC\u5F15\u53F7\u53EF\u907F\u514D"
-debug: true   # \u6253\u5370\u63A5\u53E3\u65E5\u5FD7
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/ #\u6539\u4E3A\u652F\u6301jsp\u6587\u4EF6\uFF0C\u4E0D\u7528\u9ED8\u8BA4\u89C6\u56FEThymeleaf
+      suffix: .jsp
+  datasource:
+    # db config
+    url: jdbc:mysql://10.224.169.58:3306/ssm_knowledge?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&connectTimeout=3000&socketTimeout=1000
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update #\u65B0\u589E\u6570\u636E\u5E93\u94FE\u63A5\u5FC5\u5907\u53C2\u6570

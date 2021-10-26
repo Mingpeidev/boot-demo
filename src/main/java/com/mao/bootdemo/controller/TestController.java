@@ -1,12 +1,18 @@
 package com.mao.bootdemo.controller;
 
 import com.mao.bootdemo.StudentProperties;
+import com.mao.bootdemo.dao.UserMapper;
+import com.mao.bootdemo.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author Mingpeidev
@@ -26,6 +32,9 @@ public class TestController {
     @Resource
     private StudentProperties studentProperties;
 
+    @Resource
+    private UserMapper userMapper;
+
     @RequestMapping("/hello")
     @ResponseBody
     public String hello() {
@@ -33,7 +42,14 @@ public class TestController {
     }
 
     @RequestMapping("/test")
-    public String test() {
-        return "test.html";
+    public String test(Model model) {
+        model.addAttribute("now", DateFormat.getDateTimeInstance().format(new Date()));
+        return "test";
+    }
+
+    @RequestMapping("/user")
+    @ResponseBody
+    public List<User> getUser() {
+        return userMapper.findAll();
     }
 }
