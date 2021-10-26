@@ -1,0 +1,9 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /boot
+# \u4E2D\u6587\u4F1A\u88AB\u8F6C\u6210Unicode\u7801,\u52A0\u53CC\u5F15\u53F7\u53EF\u5728@Value\u83B7\u53D6\u65F6\u8F6C\u56DE\u6765
+student:
+  age: 27\u4E86
+  content: "name:${student.name},age:${student.age},\u53CC\u5F15\u53F7\u53EF\u907F\u514D"
+debug: true   # \u6253\u5370\u63A5\u53E3\u65E5\u5FD7
